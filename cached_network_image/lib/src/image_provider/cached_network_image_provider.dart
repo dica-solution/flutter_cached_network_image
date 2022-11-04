@@ -1,6 +1,7 @@
 import 'dart:async' show Future, StreamController;
 import 'dart:ui' as ui show Codec;
 
+import 'package:cached_network_image/src/custom/custom_cache_manager.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart'
     show ImageRenderMethodForWeb;
 import 'package:flutter/foundation.dart';
@@ -104,7 +105,7 @@ class CachedNetworkImageProvider
       cacheKey,
       chunkEvents,
       decode,
-      cacheManager ?? DefaultCacheManager(),
+      cacheManager ?? CustomCacheManager(),
       maxHeight,
       maxWidth,
       headers,
@@ -143,7 +144,7 @@ class CachedNetworkImageProvider
       cacheKey,
       chunkEvents,
       decode,
-      cacheManager ?? DefaultCacheManager(),
+      cacheManager ?? CustomCacheManager(),
       maxHeight,
       maxWidth,
       headers,

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/src/custom/custom_cache_manager.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -55,7 +56,7 @@ class CachedNetworkImage extends StatelessWidget {
     BaseCacheManager? cacheManager,
     double scale = 1.0,
   }) async {
-    cacheManager = cacheManager ?? DefaultCacheManager();
+    cacheManager = cacheManager ?? CustomCacheManager();
     await cacheManager.removeFile(cacheKey ?? url);
     return CachedNetworkImageProvider(url, scale: scale).evict();
   }
